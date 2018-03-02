@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors',1);
+ini_set('display_startup_erros',1);
+error_reporting(E_ALL);
+
 use Phalcon\Di\FactoryDefault;
 
 error_reporting(E_ALL);
@@ -39,7 +44,8 @@ try {
      */
     $application = new \Phalcon\Mvc\Application($di);
 
-    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
+//    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
+    echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
